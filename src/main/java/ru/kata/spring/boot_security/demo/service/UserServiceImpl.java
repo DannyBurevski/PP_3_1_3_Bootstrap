@@ -59,12 +59,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User findUserByName(String name) {
-        return userDao.findUserByName(name);
+    public User findUserByEmail(String email) {
+        return userDao.findUserByEmail(email);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userDao.findUserByName(username);
+        return userDao.findUserByEmail(username);
     }
 }
