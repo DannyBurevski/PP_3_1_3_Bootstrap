@@ -22,12 +22,16 @@
     </thead>
     <tbody>
     <tr th:each="user : ${allUsers}">
-        <td th:text="${user.getId()}">id</td>
-        <td th:text="${user.getName()}">First Name</td>
-        <td th:text="${user.getLastName()}">Last Name</td>
-        <td th:text="${user.getAge()}">Age</td>
-        <td th:text="${user.getEmail()}">Email</td>
-        <td th:each="role: ${user.getRoles()}" th:text="${role.getName()}">Role</td>
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getAge()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td>
+            <form th:each="role: ${user.getRoles()}"
+                  th:text="${role.getName()}">
+            </form>
+        </td>
 
         <td>
             <form th:action="@{'/admin/edit/' + ${user.getId}}">
