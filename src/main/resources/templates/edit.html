@@ -5,36 +5,42 @@
     <title>Edit user</title>
 </head>
 <body>
-<div style="display:flex; justify-content: center; margin-top: 50px">
+<div>
     <form th:method="patch" th:action="@{/admin/{id}(id=${user.getId()})}"
           th:object="${user}">
-        <div class="mb-3">
-            <label th:for="name" class=" form-label">Name:</label>
-            <input class="form-control" type="text" th:field="*{name}"/>
+        <div>
+            <label th:for="name" class=" form-label">First name:</label>
+            <input type="text" th:field="*{name}"/>
         </div>
-        <div class="mb-3">
+        <br>
+        <div>
             <label th:for="lastName" class="form-label">Last name:</label>
-            <input class="form-control" type="text" th:field="*{lastName}"/>
+            <input type="text" th:field="*{lastName}"/>
         </div>
-        <div class="mb-3">
+        <br>
+        <div>
+            <label th:for="age" class="form-label">Age:</label>
+            <input type="text" th:field="*{age}"/>
+        </div>
+        <br>
+        <div>
             <label th:for="email" class="form-label">Email: </label>
-            <input class="form-control" type="email" th:field="*{email}"/>
+            <input type="email" th:field="*{email}"/>
         </div>
-        <div class="mb-3">
+        <br>
+        <div>
             <label th:for="email" class="form-label">Password: </label>
-            <input class="form-control" type="password" th:field="*{password}"/>
+            <input type="password" th:field="*{password}"/>
         </div>
+        <br>
 
-        <label class="form-label" for="id1">Укажите Роль</label>
-        <select name="listRoles"  class="form-select" aria-label="Default select example" id="id1">
+        <label class="form-label" for="id1">Role</label>
+        <select multiple name="listRoles"  class="form-select" id="id1">
             <option value="1">USER</option>
             <option value="2">ADMIN</option>
         </select>
-        <div style="margin-top: 15px">
-            <button class="btn btn-primary" type="submit">Update</button>
-            <a class="btn btn-secondary" href="/admin/new">Add User</a>
-            <a class="btn btn-secondary" href="/admin">Main Page</a>
-            <a class="btn btn-primary" href="/logout">Logout</a>
+        <div>
+            <button class="bottom-nav" type="submit">Update</button>
         </div>
 
     </form>

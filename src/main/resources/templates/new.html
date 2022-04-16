@@ -12,25 +12,30 @@
             <label th:for="name" class=" form-label">First Name:</label>
             <input type="text" th:field="*{name}"/>
         </div>
+        <br>
         <div>
             <label th:for="lastName" class="form-label">Last name:</label>
             <input type="text" th:field="*{lastName}"/>
         </div>
+        <br>
         <div>
             <label th:for="age" class="form-label">Age:</label>
             <input type="text" th:field="*{age}"/>
         </div>
+        <br>
         <div>
             <label th:for="email" class="form-label">Email: </label>
             <input type="email" th:field="*{email}"/>
         </div>
+        <br>
         <div>
             <label th:for="email" class="form-label">Password: </label>
             <input type="password" th:field="*{password}"/>
         </div>
+        <br>
 
         <label class="form-label">Role</label>
-        <select name="listRoles" id="id1">
+        <select multiple name="listRoles" id="id1">
             <option value="1">USER</option>
             <option value="2">ADMIN</option>
         </select>

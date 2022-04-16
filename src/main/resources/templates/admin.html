@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Все пользователи</title>
-    <h2>Admin</h2>
+
 </head>
 <body>
 <table border="1">
+    <h2>Admin</h2>
     <thead>
     <tr>
-        <td>Name</td>
-        <td>Last name</td>
-        <td>Email</td>
-        <td>Password</td>
-        <td>Role</td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="user : ${allUsers}">
-        <td th:text="${user.getName()}"></td>
-        <td th:text="${user.getLastName()}"></td>
-        <td th:text="${user.getEmail()}"></td>
-        <td th:text="${user.getPassword()}"></td>
-        <td th:each="role: ${user.getRoles()}" th:text="${role.getName()}"></td>
+        <td th:text="${user.getId()}">id</td>
+        <td th:text="${user.getName()}">First Name</td>
+        <td th:text="${user.getLastName()}">Last Name</td>
+        <td th:text="${user.getAge()}">Age</td>
+        <td th:text="${user.getEmail()}">Email</td>
+        <td th:each="role: ${user.getRoles()}" th:text="${role.getName()}">Role</td>
 
         <td>
-            <a th:href="@{'/admin/edit/' + ${user.getId}}">Edit</a>
+            <form th:action="@{'/admin/edit/' + ${user.getId}}">
+                <input type="submit" value="Edit"/>
+            </form>
         </td>
+
         <td>
             <form th:method="delete" th:action="@{'/admin/delete/' + ${user.getId}}">
                 <input type="submit" value="Delete">
@@ -39,9 +45,19 @@
 </table>
 <br/>
 <div>
-    <a class="bottom-nav" href="/admin/new">New user</a>
-    <a class="bottom-nav" href="/admin">Main Page</a>
-    <a class="bottom-nav" href="/logout">Logout</a>
+    <form th:action="@{'/admin/new/'}">
+        <input type="submit" value="New user"/>
+    </form>
+    <br>
+
+    <form th:action="@{'/admin'}">
+        <input type="submit" value="Main page"/>
+    </form>
+    <br>
+
+    <form th:action="@{'/logout'}">
+        <input type="submit" value="Logout"/>
+    </form>
 </div>
 
 
