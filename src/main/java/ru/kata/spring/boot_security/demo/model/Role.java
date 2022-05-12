@@ -13,10 +13,8 @@ public class Role implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+    private String name;
 
     public Role() {
 
@@ -56,16 +54,12 @@ public class Role implements GrantedAuthority {
         return getName();
     }
 
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
-
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", users=" + users +
+                ", users=" +
                 '}';
     }
 
